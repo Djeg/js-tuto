@@ -62,3 +62,46 @@ Dans le fichier `app.js` faire les consignes suivante :
 3. Grace à l'instruction [`document.querySelector`](https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector),
    créé une constante `list` en séléctionant la class de la balise `li`.
 4. En utilisant la constante `list` ajouter la balise li grace à l'instruction [`li.appendChild`](https://developer.mozilla.org/fr/docs/Web/API/Node/appendChild)
+
+## Création du bouton supprimer
+
+1. Dans la fonction "addTodo", juste après la création de l'élément `li`, créer une constante
+   `deleteButton` graçe à la fonction [`document.createElement('button')`](https://developer.mozilla.org/fr/docs/Web/API/Document/createElement).
+2. Ajouter le texte "Supprimer" en utilisant `deleteButton.innerText`
+3. Ajouter le bouton supprimer à la balise li en utilisant [`li.appendChild(deleteButton)`](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
+4. Vous pouvez tester votre code en utilisant votre navigateur, un bouton suprrimer doit apparraitre
+   lors du clique sur le bouton "Ajouter"
+
+## Vidage de l'input et conditions
+
+1. Dans la fonction "addTodo", juste après la récupération de de l'input, Arréter la fonction en utilisant un `return` si le contenue de l'input (`input.value`) est vide
+2. À la fin de la fonction "addTodo", vider l'input en utilisant l'instruction `input.value = '';`
+
+## Suppression d'un todo
+
+1. Créer une fonction `deleteTodo` qui accépte un paramètre `todo` et qui retourne une fonction.
+
+   Exemple :
+
+   ```js
+   const deleteTodo = (todo) => () => {
+     // code de la fonction
+   };
+   ```
+
+2. Dans le code de la fonction, récupérer dans une constante `list` la liste des todos
+   en utilisant [`document.querySelector('.nom-de-la-class)`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) (la balise `ul`)
+3. En utilisant [`list.removeChild(todo)`](), supprimer le todo de la liste.
+4. Dans la fonction `addTodo`, en utilisant la constante `deleteButton` et sa fonction `addEventListener`, lancer la fonction `deleteTodo` avec la balise `li` en paramètre :
+
+Exemple :
+
+```js
+deleteButton.addEventListener("click", deleteTodo(li));
+```
+
+## Ajout de css
+
+Vous pouvez dans cette exerice libre ajouter le css de votre choix (classique, bootstrap, etc ...) !
+
+Le seul objéctif est de rendre l'application un peu plus jolie :)
