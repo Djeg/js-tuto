@@ -11,6 +11,14 @@ function addTodo() {
   // Mets le contenue de l'input dans le text de la balise
   li.innerText = input.value;
 
+  // Création du bouton de suppression
+  const deleteButton = document.createElement("button");
+  // On ajoute du text dans le bouton
+  deleteButton.innerText = "Supprimer";
+
+  // On ajout le bouton dans la balise li
+  li.appendChild(deleteButton);
+
   // Récupération de la list "ul" des todo
   const ul = document.querySelector(".todo-list");
   // Ajouter le li dans la balise ul
